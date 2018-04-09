@@ -368,6 +368,21 @@ function getModelUrl(dexNo, spriteClass, gender, isShiny) {
             modelUrl  = "http://www.smogon.com/dex/media/sprites/xy/xurkitree";
         }
     }
+	
+    if (dexNo == 803) {
+    	modelUrl = "";
+    } else if (dexNo == 804) {
+	modelUrl = "";
+    } else if (dexNo == 805) {
+	modelUrl = "";
+    } else if (dexNo == 806) {
+	modelUrl = "";
+	modelUrl = "https://github.com/kokkie20/kokkie20.github.io/blob/master/Images/";
+	modelUrl += (isShiny ? "Shiny" : '') + "Blacephalon";
+    } else if (dexNo == 807) {
+	modelUrl = "";
+    }
+	
     return modelUrl  + ".gif";
 }
 function getTags(pokemon) {
