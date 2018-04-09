@@ -377,7 +377,7 @@ function getModelUrl(dexNo, spriteClass, gender, isShiny) {
 	modelUrl = "";
     } else if (dexNo == 806) {
 	modelUrl = "";
-	modelUrl = "https://github.com/kokkie20/kokkie20.github.io/blob/master/Images/";
+	modelUrl = "https://raw.githubusercontent.com/kokkie20/kokkie20.github.io/master/Images/";
 	modelUrl += (isShiny ? "Shiny" : '') + "Blacephalon";
     } else if (dexNo == 807) {
 	modelUrl = "";
