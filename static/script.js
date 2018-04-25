@@ -520,7 +520,7 @@ function tryGetValue(entry, whitelist) {
     return undefined;
 }
 function isInBlacklist(title) {
-    var blacklist = ["template", "config", "item", "database", "!:"];
+    var blacklist = ["template", "config", "item", "database", "!:", "Main"];
     title = title.toLowerCase();
     for (var i = 0; i < blacklist.length; i++) {
         if (title.indexOf(blacklist[i]) > -1) return true;
