@@ -342,7 +342,7 @@ function getSpriteClass(pokemon) {
     cssClass = cssClass.toLowerCase().replace(/é/g, 'e').replace(' ', '_').replace('\'', '').replace('.', '').replace(':', '').replace('%', '');
     return cssClass
 }
-function getModelUrl(dexNo, spriteClass, gender, isShiny, form) {
+function getModelUrl(dexNo, spriteClass, gender, isShiny) {
     var modelUrl = "http://www.pkparaiso.com/imagenes/";
     if (dexNo > 721 || spriteClass.endsWith("-alola") || spriteClass.endsWith("-10")) {
         modelUrl += "sol-luna";
@@ -616,7 +616,7 @@ function populateModal($this) {
     var generation = Number($this.data("generation"));
     $(new Image())
         .attr("class", "model")
-        .attr("src", getModelUrl(dexNo, spriteClass, gender, isShiny, form))
+        .attr("src", getModelUrl(dexNo, spriteClass, gender, isShiny))
         .appendTo($("#pokemon-info figure")).fadeIn();
     // Trainer
     $pokemonInfo.find(".trainer").next().text($this.data("ot") + " (" + $this.data("tid") + ")");
