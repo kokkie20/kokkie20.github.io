@@ -342,7 +342,7 @@ function getSpriteClass(pokemon) {
     cssClass = cssClass.toLowerCase().replace(/é/g, 'e').replace(' ', '_').replace('\'', '').replace('.', '').replace(':', '').replace('%', '');
     return cssClass
 }
-function getModelUrl(dexNo, spriteClass, gender, isShiny) {
+function getModelUrl(dexNo, spriteClass, gender, isShiny, form) {
     var modelUrl = "http://www.pkparaiso.com/imagenes/";
     if (dexNo > 721 || spriteClass.endsWith("-alola") || spriteClass.endsWith("-10")) {
         modelUrl += "sol-luna";
@@ -391,36 +391,38 @@ function getModelUrl(dexNo, spriteClass, gender, isShiny) {
 	modelUrl += (isShiny ? "Shiny" : '') + "Zeraora";
     }
 	
+    if(form == "Original Cap")
+    {
+	modelUrl = "";
+	modelUrl = "https://raw.githubusercontent.com/kokkie20/kokkie20.github.io/master/Images/pikachu-kantocap";
+    } else if (form == "Hoenn Cap")
+    {
+	modelUrl = "";
+	modelUrl = "https://raw.githubusercontent.com/kokkie20/kokkie20.github.io/master/Images/pikachu-hoenncap";	    
+    } else if (form == "Sinnoh Cap")
+    {
+	modelUrl = "";
+	modelUrl = "https://raw.githubusercontent.com/kokkie20/kokkie20.github.io/master/Images/pikachu-sinnohcap";	    
+    } else if (form == "Unova Cap")
+    {
+	modelUrl = "";
+	modelUrl = "https://raw.githubusercontent.com/kokkie20/kokkie20.github.io/master/Images/pikachu-unovacap";
+    } else if (form == "Kalos Cap")
+    {
+	modelUrl = "";
+	modelUrl = "https://raw.githubusercontent.com/kokkie20/kokkie20.github.io/master/Images/pikachu-kaloscap";	    
+    } else if (form == "Alola Cap")
+    {
+	modelUrl = "";
+	modelUrl = "https://raw.githubusercontent.com/kokkie20/kokkie20.github.io/master/Images/pikachu-alolacap";	    
+    } else if (form == "Partner Cap")
+    {
+	modelUrl = "";
+	modelUrl = "https://raw.githubusercontent.com/kokkie20/kokkie20.github.io/master/Images/pikachu-partnercap";
+    }
+	
     if (pokemon.form) {
         switch (pokemon.form) {
-            case "Original Cap":
-	    	modelUrl = "";
-		modelUrl = "https://raw.githubusercontent.com/kokkie20/kokkie20.github.io/master/Images/pikachu-kantocap";
-		break;
-            case "Hoenn Cap":
-	    	modelUrl = "";
-		modelUrl = "https://raw.githubusercontent.com/kokkie20/kokkie20.github.io/master/Images/pikachu-hoenncap";
-		break;
-            case "Sinnoh Cap":
-	    	modelUrl = "";
-		modelUrl = "https://raw.githubusercontent.com/kokkie20/kokkie20.github.io/master/Images/pikachu-sinnohcap";
-		break;
-            case "Unova Cap":
-	    	modelUrl = "";
-		modelUrl = "https://raw.githubusercontent.com/kokkie20/kokkie20.github.io/master/Images/pikachu-unovacap";
-		break;
-            case "Kalos Cap":
-	    	modelUrl = "";
-		modelUrl = "https://raw.githubusercontent.com/kokkie20/kokkie20.github.io/master/Images/pikachu-kaloscap";
-		break;
-            case "Alola Cap":
-	    	modelUrl = "";
-		modelUrl = "https://raw.githubusercontent.com/kokkie20/kokkie20.github.io/master/Images/pikachu-alolacap";
-		break;
-            case "Partner Cap":
-	    	modelUrl = "";
-		modelUrl = "https://raw.githubusercontent.com/kokkie20/kokkie20.github.io/master/Images/pikachu-partnercap";
-		break;
             case "Plant Cloak":
             case "West Sea":
             case "Rotom":
@@ -624,6 +626,7 @@ function populateModal($this) {
     }
     $pokemonInfo.find(".name").text(name);
     var gender = $this.data("gender");
+    var form = $this.data("form");
     if (gender == "F") {
         $pokemonInfo.find(".gender").html("&#x2640;").attr("class", "gender female");
     } else if (gender == "M") {
@@ -640,7 +643,7 @@ function populateModal($this) {
     var generation = Number($this.data("generation"));
     $(new Image())
         .attr("class", "model")
-        .attr("src", getModelUrl(dexNo, spriteClass, gender, isShiny))
+        .attr("src", getModelUrl(dexNo, spriteClass, gender, isShiny, form))
         .appendTo($("#pokemon-info figure")).fadeIn();
     // Trainer
     $pokemonInfo.find(".trainer").next().text($this.data("ot") + " (" + $this.data("tid") + ")");
