@@ -391,6 +391,61 @@ function getModelUrl(dexNo, spriteClass, gender, isShiny) {
 	modelUrl += (isShiny ? "Shiny" : '') + "Zeraora";
     }
 	
+    if (pokemon.form) {
+        switch (pokemon.form) {
+            case "Original Cap":
+	    	modelUrl = "";
+		modelUrl = "https://raw.githubusercontent.com/kokkie20/kokkie20.github.io/master/Images/pikachu-kantocap";
+		break;
+            case "Hoenn Cap":
+	    	modelUrl = "";
+		modelUrl = "https://raw.githubusercontent.com/kokkie20/kokkie20.github.io/master/Images/pikachu-hoenncap";
+		break;
+            case "Sinnoh Cap":
+	    	modelUrl = "";
+		modelUrl = "https://raw.githubusercontent.com/kokkie20/kokkie20.github.io/master/Images/pikachu-sinnohcap";
+		break;
+            case "Unova Cap":
+	    	modelUrl = "";
+		modelUrl = "https://raw.githubusercontent.com/kokkie20/kokkie20.github.io/master/Images/pikachu-unovacap";
+		break;
+            case "Kalos Cap":
+	    	modelUrl = "";
+		modelUrl = "https://raw.githubusercontent.com/kokkie20/kokkie20.github.io/master/Images/pikachu-kaloscap";
+		break;
+            case "Alola Cap":
+	    	modelUrl = "";
+		modelUrl = "https://raw.githubusercontent.com/kokkie20/kokkie20.github.io/master/Images/pikachu-alolacap";
+		break;
+            case "Partner Cap":
+	    	modelUrl = "";
+		modelUrl = "https://raw.githubusercontent.com/kokkie20/kokkie20.github.io/master/Images/pikachu-partnercap";
+		break;
+            case "Plant Cloak":
+            case "West Sea":
+            case "Rotom":
+            case "Altered Forme":
+            case "Land Forme":
+            case "Red-Striped Form":
+            case "Spring Form":
+            case "Incarnate Forme":
+            case "Ordinary Form":
+            case "Meadow Pattern":
+            case "Red Flower":
+            case "Natural Form":
+            case "Average Size":
+            case "Small Size":
+            case "Large Size":
+            case "Super Size":
+            case "50% Forme":
+            case "Hoopa Confined":
+            case "Baile Style":
+            case "Midday Form":
+            case "Meteor Form":
+                break;
+        }
+    }
+	
     return modelUrl  + ".gif";
 }
 function getTags(pokemon) {
