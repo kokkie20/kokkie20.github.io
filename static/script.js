@@ -421,33 +421,6 @@ function getModelUrl(dexNo, spriteClass, gender, isShiny, form) {
 	modelUrl = "https://raw.githubusercontent.com/kokkie20/kokkie20.github.io/master/Images/pikachu-partnercap";
     }
 	
-    if (pokemon.form) {
-        switch (pokemon.form) {
-            case "Plant Cloak":
-            case "West Sea":
-            case "Rotom":
-            case "Altered Forme":
-            case "Land Forme":
-            case "Red-Striped Form":
-            case "Spring Form":
-            case "Incarnate Forme":
-            case "Ordinary Form":
-            case "Meadow Pattern":
-            case "Red Flower":
-            case "Natural Form":
-            case "Average Size":
-            case "Small Size":
-            case "Large Size":
-            case "Super Size":
-            case "50% Forme":
-            case "Hoopa Confined":
-            case "Baile Style":
-            case "Midday Form":
-            case "Meteor Form":
-                break;
-        }
-    }
-	
     return modelUrl  + ".gif";
 }
 function getTags(pokemon) {
