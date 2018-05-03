@@ -390,7 +390,7 @@ function getModelUrl(dexNo, spriteClass, gender, isShiny, form) {
 	modelUrl = "https://raw.githubusercontent.com/kokkie20/kokkie20.github.io/master/Images/";
 	modelUrl += (isShiny ? "Shiny" : '') + "Zeraora";
     }
-	
+/*	
     if(form == "Original Cap")
     {
 	modelUrl = "";
@@ -419,7 +419,7 @@ function getModelUrl(dexNo, spriteClass, gender, isShiny, form) {
     {
 	modelUrl = "";
 	modelUrl = "https://raw.githubusercontent.com/kokkie20/kokkie20.github.io/master/Images/pikachu-partnercap";
-    }
+    }*/
 	
     return modelUrl  + ".gif";
 }
