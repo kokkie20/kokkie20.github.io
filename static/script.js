@@ -342,7 +342,7 @@ function getSpriteClass(pokemon) {
     cssClass = cssClass.toLowerCase().replace(/é/g, 'e').replace(' ', '_').replace('\'', '').replace('.', '').replace(':', '').replace('%', '');
     return cssClass
 }
-function getModelUrl(dexNo, spriteClass, gender, isShiny) {
+function getModelUrl(dexNo, spriteClass, gender, isShiny, form) {
     var modelUrl = "http://www.pkparaiso.com/imagenes/";
     if (dexNo > 721 || spriteClass.endsWith("-alola") || spriteClass.endsWith("-10")) {
         modelUrl += "sol-luna";
@@ -389,8 +389,7 @@ function getModelUrl(dexNo, spriteClass, gender, isShiny) {
 	modelUrl = "";
 	modelUrl = "https://raw.githubusercontent.com/kokkie20/kokkie20.github.io/master/Images/";
 	modelUrl += (isShiny ? "Shiny" : '') + "Zeraora";
-    }
-/*	
+    }	
     if(form == "Original Cap")
     {
 	modelUrl = "";
@@ -419,7 +418,7 @@ function getModelUrl(dexNo, spriteClass, gender, isShiny) {
     {
 	modelUrl = "";
 	modelUrl = "https://raw.githubusercontent.com/kokkie20/kokkie20.github.io/master/Images/pikachu-partnercap";
-    }*/
+    }
 	
     return modelUrl  + ".gif";
 }
@@ -616,7 +615,7 @@ function populateModal($this) {
     var generation = Number($this.data("generation"));
     $(new Image())
         .attr("class", "model")
-        .attr("src", getModelUrl(dexNo, spriteClass, gender, isShiny))
+        .attr("src", getModelUrl(dexNo, spriteClass, gender, isShiny, form))
         .appendTo($("#pokemon-info figure")).fadeIn();
     // Trainer
     $pokemonInfo.find(".trainer").next().text($this.data("ot") + " (" + $this.data("tid") + ")");
