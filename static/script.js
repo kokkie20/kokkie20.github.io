@@ -1090,14 +1090,7 @@ var isForIndividualPokemon = false;
 $(document).ready(function() {
     $.getJSON(getWorksheetUrl(spreadsheetId, 1), function(data) {
         // read config worksheet if exists
-        var entry = data.feed.entry[0];
-        if (entry.gsx$ingamename) {
-            friendCode = getValue(entry.gsx$friendcode) || friendCode;
-            inGameName = getValue(entry.gsx$ingamename) || inGameName;
-            contactUrl = getValue(entry.gsx$contacturl) || contactUrl;
-            trainerIconUrl = getValue(entry.gsx$trainericonurl) || trainerIconUrl;
             worksheetId = 2;
-        }
         // get worksheet from URL, otherwise it defaults to 1st sheet
         var hash = window.location.hash.slice(-1);
         if (!isNaN(hash) && hash) {
