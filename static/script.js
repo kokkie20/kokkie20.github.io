@@ -418,12 +418,7 @@ function getModelUrl(dexNo, spriteClass, gender, isShiny, forme) {
     {
 	modelUrl = "";
 	modelUrl = "https://raw.githubusercontent.com/kokkie20/kokkie20.github.io/master/Images/pikachu-partnercap";
-    } else if (forme == "Egg")
-    {
-	modelUrl = "";
-	modelUrl = "https://raw.githubusercontent.com/kokkie20/kokkie20.github.io/master/Images/Egg";    
-    }
-	
+    }	
     return modelUrl  + ".gif";
 }
 function getTags(pokemon) {
