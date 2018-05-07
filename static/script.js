@@ -784,7 +784,8 @@ function displayPokemon(){
             // Sprite
 			if(pokemon.forme == "Egg")
 			{
-				row += "<td class=\"sprite\"><img src="https://raw.githubusercontent.com/kokkie20/kokkie20.github.io/master/Images/Bag_Mystery_Egg_Sprite.png" class="menu-sprite"></td>";
+				var eggsprite = "https://raw.githubusercontent.com/kokkie20/kokkie20.github.io/master/Images/Bag_Mystery_Egg_Sprite.png";
+				row += "<td class=\"sprite\"><img src="+ eggsprite +" class=\"menu-sprite\"></td>";
 			} else {
 				row += "<td class=\"sprite\"><span class=\"menu-sprite " + getSpriteClass(pokemon) + "\" title=\"" + pokemon.name + "\">" + pokemon.dexNo + "</span></td>";
 			}
