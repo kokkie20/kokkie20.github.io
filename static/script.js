@@ -393,7 +393,6 @@ function getModelUrl(dexNo, spriteClass, gender, isShiny, form) {
     }	
     if(form == "Original Cap")
     {
-	alert("I am an alert box!");
 	modelUrl = "";
 	modelUrl = "https://raw.githubusercontent.com/kokkie20/kokkie20.github.io/master/Images/pikachu-kantocap";
     } else if (form == "Hoenn Cap")
