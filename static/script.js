@@ -418,7 +418,11 @@ function getModelUrl(dexNo, spriteClass, gender, isShiny, form) {
     {
 	modelUrl = "";
 	modelUrl = "https://raw.githubusercontent.com/kokkie20/kokkie20.github.io/master/Images/pikachu-partnercap";
-    }
+    } else if (form == "Egg")
+	{
+		modelUrl = "";
+		modelUrl = "https://raw.githubusercontent.com/kokkie20/kokkie20.github.io/master/Images/Egg";	
+	}
 	
     return modelUrl  + ".gif";
 }
@@ -778,7 +782,12 @@ function displayPokemon(){
 
             var row = "<tr class=\"" + getTags(pokemon) + "\"" + getData(pokemon) + " data-id=\"" + count + "\">";
             // Sprite
-            row += "<td class=\"sprite\"><span class=\"menu-sprite " + getSpriteClass(pokemon) + "\" title=\"" + pokemon.name + "\">" + pokemon.dexNo + "</span></td>";
+			if(pokemon.form == "Egg")
+			{
+				row += "<td class=\"sprite\"><img src="https://raw.githubusercontent.com/kokkie20/kokkie20.github.io/master/Images/Bag_Mystery_Egg_Sprite.png" class="menu-sprite"></td>";
+			} else {
+				row += "<td class=\"sprite\"><span class=\"menu-sprite " + getSpriteClass(pokemon) + "\" title=\"" + pokemon.name + "\">" + pokemon.dexNo + "</span></td>";
+			}
             // Name
             row += "<td class=\"name\">" + (pokemon.dexNo == 29 || pokemon.dexNo == 32 ? "Nidoran" : pokemon.name);
             if (pokemon.gender == "F") {
