@@ -322,6 +322,7 @@ function getSpriteClass(pokemon) {
             case "Hoopa Confined":
             case "Baile Style":
             case "Midday Form":
+	    case "Egg":
             case "Meteor Form":
                 break;
             case "Ash-Greninja":
