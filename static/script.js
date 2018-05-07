@@ -204,7 +204,7 @@ var StatAttributes = function() {
 var Pokemon = function() {
     this.dexNo = 0;
     this.name = "";
-    this.forme = "";
+    this.form = "";
     this.nickname = "";
     this.ot = "";
     this.tid = 0;
@@ -265,7 +265,7 @@ var Pokemon = function() {
         return 1; 
     };
     this.hasHiddenAbility = function() {
-        if (this.forme == "Alola Form") {
+        if (this.form == "Alola Form") {
             return this.ability in ALOLAN_HIDDEN_ABILITIES && ALOLAN_HIDDEN_ABILITIES[this.ability].indexOf(this.dexNo) > -1;
         }
         return this.ability in HIDDEN_ABILITIES && HIDDEN_ABILITIES[this.ability].indexOf(this.dexNo) > -1;
@@ -292,8 +292,8 @@ function getSpriteClass(pokemon) {
             if (pokemon.gender == "M") cssClass += "-male";
             break;
     }
-    if (pokemon.forme) {
-        switch (pokemon.forme) {
+    if (pokemon.form) {
+        switch (pokemon.form) {
             case "Original Cap":
             case "Hoenn Cap":
             case "Sinnoh Cap":
@@ -333,17 +333,17 @@ function getSpriteClass(pokemon) {
                 break;
             case "Dusk Mane":
             case "Dawn Wings":
-                cssClass += "-" + pokemon.forme.replace(' ', '-');
+                cssClass += "-" + pokemon.form.replace(' ', '-');
                 break;
             default:
-                cssClass += "-" + pokemon.forme.substring(0, pokemon.forme.lastIndexOf(" "));
+                cssClass += "-" + pokemon.form.substring(0, pokemon.form.lastIndexOf(" "));
                 break;
         }
     }
     cssClass = cssClass.toLowerCase().replace(/é/g, 'e').replace(' ', '_').replace('\'', '').replace('.', '').replace(':', '').replace('%', '');
     return cssClass
 }
-function getModelUrl(dexNo, spriteClass, gender, isShiny, forme) {
+function getModelUrl(dexNo, spriteClass, gender, isShiny, form) {
     var modelUrl = "http://www.pkparaiso.com/imagenes/";
     if (dexNo > 721 || spriteClass.endsWith("-alola") || spriteClass.endsWith("-10")) {
         modelUrl += "sol-luna";
@@ -391,31 +391,31 @@ function getModelUrl(dexNo, spriteClass, gender, isShiny, forme) {
 	modelUrl = "https://raw.githubusercontent.com/kokkie20/kokkie20.github.io/master/Images/";
 	modelUrl += (isShiny ? "Shiny" : '') + "Zeraora";
     }	
-    if(forme == "Original Cap")
+    if(form == "Original Cap")
     {
 	modelUrl = "";
 	modelUrl = "https://raw.githubusercontent.com/kokkie20/kokkie20.github.io/master/Images/pikachu-kantocap";
-    } else if (forme == "Hoenn Cap")
+    } else if (form == "Hoenn Cap")
     {
 	modelUrl = "";
 	modelUrl = "https://raw.githubusercontent.com/kokkie20/kokkie20.github.io/master/Images/pikachu-hoenncap";	    
-    } else if (forme == "Sinnoh Cap")
+    } else if (form == "Sinnoh Cap")
     {
 	modelUrl = "";
 	modelUrl = "https://raw.githubusercontent.com/kokkie20/kokkie20.github.io/master/Images/pikachu-sinnohcap";	    
-    } else if (forme == "Unova Cap")
+    } else if (form == "Unova Cap")
     {
 	modelUrl = "";
 	modelUrl = "https://raw.githubusercontent.com/kokkie20/kokkie20.github.io/master/Images/pikachu-unovacap";
-    } else if (forme == "Kalos Cap")
+    } else if (form == "Kalos Cap")
     {
 	modelUrl = "";
 	modelUrl = "https://raw.githubusercontent.com/kokkie20/kokkie20.github.io/master/Images/pikachu-kaloscap";	    
-    } else if (forme == "Alola Cap")
+    } else if (form == "Alola Cap")
     {
 	modelUrl = "";
 	modelUrl = "https://raw.githubusercontent.com/kokkie20/kokkie20.github.io/master/Images/pikachu-alolacap";	    
-    } else if (forme == "Partner Cap")
+    } else if (form == "Partner Cap")
     {
 	modelUrl = "";
 	modelUrl = "https://raw.githubusercontent.com/kokkie20/kokkie20.github.io/master/Images/pikachu-partnercap";
@@ -431,7 +431,7 @@ function getTags(pokemon) {
     if (pokemon.isShiny) tags.push("shiny");
     if (LEGENDS.indexOf(pokemon.dexNo) > -1) tags.push("legend");
     if (SUBLEGENDS.indexOf(pokemon.dexNo) > -1) tags.push("sublegend");
-    if ((POKEMON_WITH_ALOLA_FORM.indexOf(pokemon.dexNo) > -1 && pokemon.forme == "Alola Form") || POKEMON_ALLOWED_ON_VGC17.indexOf(pokemon.dexNo) > -1) tags.push("allowed-on-vgc17");
+    if ((POKEMON_WITH_ALOLA_FORM.indexOf(pokemon.dexNo) > -1 && pokemon.form == "Alola Form") || POKEMON_ALLOWED_ON_VGC17.indexOf(pokemon.dexNo) > -1) tags.push("allowed-on-vgc17");
     if (["Electric", "Fighting", "Fire", "Grass", "Ground", "Ice", "Rock", "Water"].indexOf(pokemon.hiddenPower) > -1) tags.push("hidden-power");
     Object.keys(EGG_GROUPS).forEach(function(egg_group) {
         if (EGG_GROUPS[egg_group].indexOf(pokemon.dexNo) > -1) tags.push("egg-group-" + egg_group.toLowerCase().replace(' ', ''));
@@ -598,7 +598,7 @@ function populateModal($this) {
     }
     $pokemonInfo.find(".name").text(name);
     var gender = $this.data("gender");
-    var forme = $this.data("form");
+    var form = $this.data("form");
     if (gender == "F") {
         $pokemonInfo.find(".gender").html("&#x2640;").attr("class", "gender female");
     } else if (gender == "M") {
@@ -615,7 +615,7 @@ function populateModal($this) {
     var generation = Number($this.data("generation"));
     $(new Image())
         .attr("class", "model")
-        .attr("src", getModelUrl(dexNo, spriteClass, gender, isShiny, forme))
+        .attr("src", getModelUrl(dexNo, spriteClass, gender, isShiny, form))
         .appendTo($("#pokemon-info figure")).fadeIn();
     // Trainer
     $pokemonInfo.find(".trainer").next().text($this.data("ot") + " (" + $this.data("tid") + ")");
@@ -679,7 +679,7 @@ function displayPokemon(){
             if (!pokemon.dexNo || !pokemon.name) {
                 return true;
             }
-            pokemon.forme = getValue(this.gsx$form);
+            pokemon.form = getValue(this.gsx$form);
             pokemon.nature = getValue(this.gsx$nature) || "???";
             pokemon.ability = getValue(this.gsx$ability) || "Any";
             pokemon.ivs.hp = getValue(this.gsx$hpiv) || "x";
@@ -786,8 +786,8 @@ function displayPokemon(){
             } else if (pokemon.gender == "M") {
                  row += " <span class=\"gender male\" title=\"Male\">&#x2642;</span>";
             }
-            if (pokemon.forme) {
-                row += "<br><span class=\"form\">" + pokemon.forme + "</span>";
+            if (pokemon.form) {
+                row += "<br><span class=\"form\">" + pokemon.form + "</span>";
             }
             row += "</td>";
             // Trainer
@@ -918,7 +918,7 @@ function displayPokemon(){
 			row += "<td class=\"friend\">" + pokemon.rarity + "</td></tr>";
 		}
 		else {
-			row += "<td class=\"rarity\"> </td></tr>";
+			row += "<td class=\"rarity\">" + pokemon.rarity + "</td></tr>";
 		}
 			
             // Egg Moves
