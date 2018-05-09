@@ -888,15 +888,6 @@ function displayPokemon(){
                 row += pokemon.balls[i] + "</span>";
             }
             row += "</td>";
-			//Checked
-			var ischecked = "";
-			if (pokemon.checked == "X")
-			{
-				ischecked = "✔";
-			} else {
-				ischecked = "✘";
-			}
-			row += "<td class=\"checked\">" + ischecked + "</td>";
 			//Proofed
 			var isproofed = "";
 			if (pokemon.proof == "X")
