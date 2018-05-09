@@ -792,6 +792,8 @@ function displayPokemon(){
             row += "</td>";
             // Trainer
             row += "<td class=\"trainer\">" + pokemon.ot + "<br><span class=\"tid\">(" + pokemon.tid + ")</span></td>";
+            //Lang
+	    row += "<td class=\"lang\">" + pokemon.language + "</td>";
             // Nature
             row += "<td class=\"nature " + pokemon.nature.toLowerCase() + "\">" + pokemon.nature + "</td>";
             // Ability
