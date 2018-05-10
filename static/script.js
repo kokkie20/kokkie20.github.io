@@ -906,13 +906,13 @@ function displayPokemon(){
 		} else if (pokemon.rarity == "NFT")
 		{
 			row += "<td class=\"nft\">" + pokemon.rarity + "</td></tr>";
-		} else if (pokemon.rarity == "Friend Only")
+		} else if (pokemon.rarity == "FRIEND")
 		{
-			row += "<td class=\"friend\">" + pokemon.rarity + "</td></tr>";
+			row += "<td class=\"friend\">Friend Only</td></tr>";
 		}
-		else if (pokemon.rarity != "")
+		else if (pokemon.rarity == "LANG")
 		{
-			row += "<td class=\"rarity\">" + pokemon.rarity + "</td></tr>";
+			row += "<td class=\"rarity\">Other Lang</td></tr>";
 		} else {
 			row += "<td class=\"rarity\"> </td></tr>";
 		}
