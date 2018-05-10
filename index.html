@@ -12,10 +12,11 @@
     <script src="static/bootstrap.multiselect.js"></script>
     <script src="static/clipboard.min.js"></script>
     <script src="static/script.js"></script>
+    <script src="https://unpkg.com/sticky-table-headers"></script>
     <script>
 	$(document).ready(function(){
 	    $('div#trainer-info').hide();
-	    $("table").fixMe();
+	    $('table').stickyTableHeaders();
             $('button#toggleInfo').click(function(){
                $('div#trainer-info').toggle();
             });
