@@ -910,11 +910,11 @@ function displayPokemon(){
 		{
 			row += "<td class=\"friend\">" + pokemon.rarity + "</td></tr>";
 		}
-		else if (pokemon.rarity == "")
+		else if (pokemon.rarity != "")
 		{
-			row += "<td class=\"rarity\"> </td></tr>";
-		} else {
 			row += "<td class=\"rarity\">" + pokemon.rarity + "</td></tr>";
+		} else {
+			row += "<td class=\"rarity\"> </td></tr>";
 		}
 			
             // Egg Moves
