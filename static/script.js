@@ -910,7 +910,7 @@ function displayPokemon(){
 		{
 			row += "<td class=\"friend\">" + pokemon.rarity + "</td></tr>";
 		}
-		else if (pokemon.rarity == "undefined")
+		else if (pokemon.rarity == "")
 		{
 			row += "<td class=\"rarity\"> </td></tr>";
 		} else {
