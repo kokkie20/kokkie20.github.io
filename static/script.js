@@ -911,7 +911,7 @@ function displayPokemon(){
 			row += "<td class=\"friend\">" + pokemon.rarity + "</td></tr>";
 		}
 		else {
-			row += "<td class=\"rarity\"> </td></tr>";
+			row += "<td class=\"rarity\">" + pokemon.rarity + "</td></tr>";
 		}
 			
             // Egg Moves
