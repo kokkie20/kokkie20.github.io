@@ -935,7 +935,7 @@ function displayPokemon(){
 		else if (pokemon.rarity == "LANG")
 		{
 			row += "<td class=\"rarity\">Other Lang</td></tr>";
-		} else if (empty(pokemmon.rarity)) {
+		} else if (empty(pokemon.rarity)) {
 			row += "<td class=\"rarity\"> </td></tr>";
 		} else {
 			row += "<td class=\"nft\">" + pokemon.rarity + "</td></tr>";
