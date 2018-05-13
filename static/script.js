@@ -275,6 +275,19 @@ var Pokemon = function() {
     };
 };
 // Functions
+
+function empty(str)
+{
+    if (typeof str == 'undefined' || !str || str.length === 0 || str === "" || !/[^\s]/.test(str) || /^\s*$/.test(str) || str.replace(/\s/g,"") === "")
+    {
+        return true;
+    }
+    else
+    {
+        return false;
+    }
+}
+
 function getSpriteClass(pokemon) {
     var cssClass = pokemon.name;
     switch (pokemon.dexNo) {
@@ -922,8 +935,10 @@ function displayPokemon(){
 		else if (pokemon.rarity == "LANG")
 		{
 			row += "<td class=\"rarity\">Other Lang</td></tr>";
-		} else {
+		} else if (empty(pokemmon.rarity)) {
 			row += "<td class=\"rarity\"> </td></tr>";
+		} else {
+			row += "<td class=\"nft\">" + pokemon.rarity + "</td></tr>";
 		}
 			
             // Egg Moves
