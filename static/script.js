@@ -922,22 +922,36 @@ function displayPokemon(){
 		if(pokemon.rarity == "RTO")
 		{
 			row += "<td class=\"rto\">" + pokemon.rarity + "</td></tr>";
-		} else if (pokemon.rarity == "VRTO")
+		} 
+		else if (pokemon.rarity == "VRTO")
 		{
 			row += "<td class=\"vrto\">" + pokemon.rarity + "</td></tr>";
-		} else if (pokemon.rarity == "NFT")
+		} 
+		else if (pokemon.rarity == "NFT")
 		{
 			row += "<td class=\"nft\">" + pokemon.rarity + "</td></tr>";
-		} else if (pokemon.rarity == "FRIEND")
+		} 
+		else if (pokemon.rarity == "FRIEND")
 		{
 			row += "<td class=\"friend\">Friend Only</td></tr>";
-		}
+		} 
+		else if (pokemon.rarity == "LNFT")
+		{
+			row += "<td class=\"vrto\">" + pokemon.rarity + "</td></tr>";
+		} 
+		else if (pokemon.rarity == "SNFT")
+		{
+			row += "<td class=\"nft\">" + pokemon.rarity + "</td></tr>";
+		} 
 		else if (pokemon.rarity == "LANG")
 		{
 			row += "<td class=\"rarity\">Other Lang</td></tr>";
-		} else if (empty(pokemon.rarity)) {
+		} 
+		else if (empty(pokemon.rarity)) {
 			row += "<td class=\"rarity\"> </td></tr>";
-		} else {
+		} 
+		else 
+		{
 			row += "<td class=\"rarity\">" + pokemon.rarity + "</td></tr>";
 		}
 			
