@@ -335,6 +335,10 @@ td.friend {
 	color:#ccad00;
 	font-weight: bold;
 }
+td.rarity { 
+	color:#000000;
+	font-weight: bold;
+}
 
 .gender{
     font-family:"Apple Color Emoji","Segoe UI Emoji","NotoColorEmoji","Segoe UI Symbol","Android Emoji","EmojiSymbols"
