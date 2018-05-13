@@ -938,7 +938,7 @@ function displayPokemon(){
 		} else if (empty(pokemon.rarity)) {
 			row += "<td class=\"rarity\"> </td></tr>";
 		} else {
-			row += "<td class=\"nft\">" + pokemon.rarity + "</td></tr>";
+			row += "<td class=\"rarity\">" + pokemon.rarity + "</td></tr>";
 		}
 			
             // Egg Moves
