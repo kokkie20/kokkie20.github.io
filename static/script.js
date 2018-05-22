@@ -819,6 +819,16 @@ function displayPokemon(){
             row += "<td class=\"nature " + pokemon.nature.toLowerCase() + "\">" + pokemon.nature + "</td>";
             // Ability
             row += "<td class=\"ability\">" + (pokemon.ability.endsWith('*') ? pokemon.ability.slice(0,-1) : pokemon.ability) + "</td>";
+            // Hidden Power
+			if (pokemon.hiddenPower)
+			{
+				var hidden = pokemon.hiddenPower;
+				row += "<td class=\"hidden-power hidden\">" + hidden + "</td>";
+				row += "</td>";
+			} else {
+				row += "<td class=\"hidden-power hidden\">Unknown</td>";
+				row += "</td>";
+			}
             // EVs
             var evs = [];
             var evTotal = 0;
@@ -888,17 +898,6 @@ function displayPokemon(){
             if (evTotal === 0) evs = "Not EV-trained";
             row += "<td class=\"ivs hidden\">" + ivs + "</td>";
             row += "<td class=\"evs hidden\">" + evs + "</td>";
-		
-            // Hidden Power
-			if (pokemon.hiddenPower)
-			{
-				var hidden = pokemon.hiddenPower;
-				row += "<td class=\"hidden-power hidden\">" + hidden + "</td>";
-				row += "</td>";
-			} else {
-				row += "<td class=\"hidden-power hidden\">Unknown</td>";
-				row += "</td>";
-			}
 			
             /*row += "<td class=\"hidden-power\">";
             if (pokemon.hiddenPower) {
@@ -1068,7 +1067,7 @@ function displayPokemon(){
                 }
                 line += "<span class=\"ability\"> " + ability + " |</span>";
 				// Hidden Power
-                line += "<span class=\"hidden-power\"> " + $this.find(".hidden-power hidden").text() + " |</span>";
+                line += "<span class=\"hiddenPowerspan\"> " + $this.find(".hidden-power hidden").text() + " |</span>";
                 // IVs & EVs
                 var statAttributes = $this.find(".ivs").text();
                 line += "<span class=\"ivs\"> " + statAttributes + " |</span>";
