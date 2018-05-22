@@ -923,48 +923,48 @@ function displayPokemon(){
 				isproofed = "✘";
 			}
 			row += "<td class=\"proof\">" + isproofed + "</td>";
-		//Bulbabedia
-		if (!empty(pokemon.bulbapedia)) {
-			row += "<td class=\"bulba\"><a href=\"" + pokemon.bulbapedia + "\" target=\"_blank\">Click Here</a></td>";
-		} 
-		else {
-			row += "<td class=\"bulba\"> </td>";
-		}
 		
 		if(pokemon.rarity == "RTO")
 		{
-			row += "<td class=\"rto\">" + pokemon.rarity + "</td></tr>";
+			row += "<td class=\"rto\">" + pokemon.rarity + "</td>";
 		} 
 		else if (pokemon.rarity == "VRTO")
 		{
-			row += "<td class=\"vrto\">" + pokemon.rarity + "</td></tr>";
+			row += "<td class=\"vrto\">" + pokemon.rarity + "</td>";
 		} 
 		else if (pokemon.rarity == "NFT")
 		{
-			row += "<td class=\"nft\">" + pokemon.rarity + "</td></tr>";
+			row += "<td class=\"nft\">" + pokemon.rarity + "</td>";
 		} 
 		else if (pokemon.rarity == "FRIEND")
 		{
-			row += "<td class=\"friend\">Friend Only</td></tr>";
+			row += "<td class=\"friend\">Friend Only</td>";
 		} 
 		else if (pokemon.rarity == "LNFT")
 		{
-			row += "<td class=\"vrto\">" + pokemon.rarity + "</td></tr>";
+			row += "<td class=\"vrto\">" + pokemon.rarity + "</td>";
 		} 
 		else if (pokemon.rarity == "SNFT")
 		{
-			row += "<td class=\"nft\">" + pokemon.rarity + "</td></tr>";
+			row += "<td class=\"nft\">" + pokemon.rarity + "</td>";
 		} 
 		else if (pokemon.rarity == "LANG")
 		{
-			row += "<td class=\"rarity\">Other Lang</td></tr>";
+			row += "<td class=\"rarity\">Other Lang</td>";
 		} 
 		else if (empty(pokemon.rarity)) {
-			row += "<td class=\"rarity\"> </td></tr>";
+			row += "<td class=\"rarity\"> </td>";
 		} 
 		else 
 		{
-			row += "<td class=\"rarity\">" + pokemon.rarity + "</td></tr>";
+			row += "<td class=\"rarity\">" + pokemon.rarity + "</td>";
+		}
+		//Bulbabedia
+		if (!empty(pokemon.bulbapedia)) {
+			row += "<td class=\"bulba\"><a href=\"" + pokemon.bulbapedia + "\" target=\"_blank\">Click Here</a></td></tr>";
+		} 
+		else {
+			row += "<td class=\"bulba\"> </td></tr>";
 		}
 			
             // Egg Moves
