@@ -446,6 +446,7 @@ function getTags(pokemon) {
     if (LEGENDS.indexOf(pokemon.dexNo) > -1) tags.push("legend");
     if (SUBLEGENDS.indexOf(pokemon.dexNo) > -1) tags.push("sublegend");
     if ((POKEMON_WITH_ALOLA_FORM.indexOf(pokemon.dexNo) > -1 && pokemon.form == "Alola Form") || POKEMON_ALLOWED_ON_VGC17.indexOf(pokemon.dexNo) > -1) tags.push("allowed-on-vgc17");
+    if (["Normal", "Fighting", "Flying", "Poison", "Ground", "Rock", "Bug", "Ghost", "Steel", "Fire", "Water", "Grass", "Electric", "Psychic", "Ice", "Dragon", "Dark", "Fairy"].indexOf(pokemon.hiddenPower) > -1) tags.push("hidden-power");
     Object.keys(EGG_GROUPS).forEach(function(egg_group) {
         if (EGG_GROUPS[egg_group].indexOf(pokemon.dexNo) > -1) tags.push("egg-group-" + egg_group.toLowerCase().replace(' ', ''));
     });
@@ -617,6 +618,7 @@ function populateModal($this) {
     var gender = $this.data("gender");
     var form = $this.data("form");
     var bulbapedia = $this.data("bulbapedia");
+	var hiddenpower = $this.data("hiddenPower");
     if (gender == "F") {
         $pokemonInfo.find(".gender").html("&#x2640;").attr("class", "gender female");
     } else if (gender == "M") {
