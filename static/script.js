@@ -707,7 +707,7 @@ function displayPokemon(){
             pokemon.ivs.spa = getValue(this.gsx$spaiv) || "x";
             pokemon.ivs.spd = getValue(this.gsx$spdiv) || "x";
             pokemon.ivs.spe = getValue(this.gsx$speiv) || "x";
-            pokemon.hiddenPower = getValue(this.gsx$hiddenpower);
+            pokemon.hiddenPower = getValue(this.gsx$hiddenpower) || "Unknown";
             pokemon.moves = [
                 getValue(this.gsx$move1),
                 getValue(this.gsx$move2),
@@ -889,7 +889,7 @@ function displayPokemon(){
             row += "<td class=\"evs hidden\">" + evs + "</td>";
 		
             // Hidden Power
-            /*row += "<td class=\"hidden-power hidden\">";
+            row += "<td class=\"hidden-power hidden\">";
             if (pokemon.hiddenPower) {
                 row += "<span title=\"" + pokemon.hiddenPower + "\"";
                 row += " class=\"hidden-power " + pokemon.hiddenPower.toLowerCase() + "\">";
@@ -897,7 +897,7 @@ function displayPokemon(){
             } else {
                 row += "-";
             }
-            row += "</td>";*/
+            row += "</td>";
             row += "<td class=\"moves hidden" +  (pokemon.eggMoves.length > 0 || !isForIndividualPokemon ? " hidden" : '') + "\">" + pokemon.moves.join(', ') + "</td>";      
             row += "<td class=\"egg-moves hidden" +  (pokemon.eggMoves.length === 0 && isForIndividualPokemon ? " hidden" : '') + "\">" + pokemon.eggMoves.join(', ') + "</td>";       
             // Poké Balls
@@ -1060,7 +1060,7 @@ function displayPokemon(){
                 var statAttributes = $this.find(".ivs").text();
                 line += "<span class=\"ivs\"> " + statAttributes + " |</span>";
 				// Hidden Power
-                line += "<span class=\"hidden-power\"> Test |</span>";
+                line += "<span class=\"hidden-power\"> " + $this.data("hiddenPower") + " |</span>";
                 // Egg Moves
                 line += "<span class=\"egg-moves\"> " + $this.find(".egg-moves").text() + " |</span>";
                 // Poké Balls
