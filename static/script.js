@@ -815,7 +815,7 @@ function displayPokemon(){
             // Ability
             row += "<td class=\"ability\">" + (pokemon.ability.endsWith('*') ? pokemon.ability.slice(0,-1) : pokemon.ability) + "</td>";
             // EVs
-            var evs = [];
+            /*var evs = [];
             var evTotal = 0;
             for (var i = 0; i < BATTLE_STATS.length; i++) {
                 var stat = BATTLE_STATS_ABBR[i];
@@ -882,7 +882,8 @@ function displayPokemon(){
             evs = evs.join(' / ');
             if (evTotal === 0) evs = "Not EV-trained";
             row += "<td class=\"ivs hidden\">" + ivs + "</td>";
-            row += "<td class=\"evs hidden\">" + evs + "</td>";
+            row += "<td class=\"evs hidden\">" + evs + "</td>";*/
+		
             // Hidden Power
             /*row += "<td class=\"hidden-power\">";
             if (pokemon.hiddenPower) {
@@ -1048,9 +1049,6 @@ function displayPokemon(){
                 // IVs & EVs
                 var statAttributes = $this.find(".ivs").text();
                 line += "<span class=\"ivs\"> " + statAttributes + " |</span>";
-		var hp = $this.find(".hidden-power").text();
-		line += "<span class=\"hidden-power " + pokemon.hiddenPower.toLowerCase() + "\">" + $this.data("hiddenPower" + "</span\">";                statAttributes = $this.find(".evs").text();
-                line += "<span class=\"evs\"> " + statAttributes + " |</span>";
                 // Egg Moves
                 line += "<span class=\"egg-moves\"> " + $this.find(".egg-moves").text() + " |</span>";
                 // Poké Balls
