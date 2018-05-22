@@ -1067,7 +1067,7 @@ function displayPokemon(){
                 var statAttributes = $this.find(".ivs").text();
                 line += "<span class=\"ivs\"> " + statAttributes + " |</span>";
 				// Hidden Power
-                line += "<span class=\"hidden-power\"> " + $this.data("hiddenPower") + " |</span>";
+                line += "<span class=\"hidden-power\"> " + $this.data("hiddenpower") + " |</span>";
                 // Egg Moves
                 line += "<span class=\"egg-moves\"> " + $this.find(".egg-moves").text() + " |</span>";
                 // Poké Balls
