@@ -446,7 +446,7 @@ function getTags(pokemon) {
     if (LEGENDS.indexOf(pokemon.dexNo) > -1) tags.push("legend");
     if (SUBLEGENDS.indexOf(pokemon.dexNo) > -1) tags.push("sublegend");
     if ((POKEMON_WITH_ALOLA_FORM.indexOf(pokemon.dexNo) > -1 && pokemon.form == "Alola Form") || POKEMON_ALLOWED_ON_VGC17.indexOf(pokemon.dexNo) > -1) tags.push("allowed-on-vgc17");
-    if (["Electric", "Fighting", "Fire", "Grass", "Ground", "Ice", "Rock", "Water"].indexOf(pokemon.hiddenPower) > -1) tags.push("hidden-power");
+    if (["Normal", "Fighting", "Flying", "Poison", "Ground", "Rock", "Bug", "Ghost", "Steel", "Fire", "Water", "Grass", "Electric", "Psychic", "Ice", "Dragon", "Dark", "Fairy"].indexOf(pokemon.hiddenPower) > -1) tags.push("hidden-power");
     Object.keys(EGG_GROUPS).forEach(function(egg_group) {
         if (EGG_GROUPS[egg_group].indexOf(pokemon.dexNo) > -1) tags.push("egg-group-" + egg_group.toLowerCase().replace(' ', ''));
     });
@@ -455,6 +455,10 @@ function getTags(pokemon) {
     }
     return tags.join(' ');
 }
+
+
+
+
 function getData(pokemon) {
     var data = "";
     Object.keys(pokemon).forEach(function(i) {
@@ -1055,7 +1059,8 @@ function displayPokemon(){
                 // IVs & EVs
                 var statAttributes = $this.find(".ivs").text();
                 line += "<span class=\"ivs\"> " + statAttributes + " |</span>";
-                line += "<span class=\"hidden-power\"> " + $this.data("pokemon.hiddenPower") + " |</span>";*/
+				// Hidden Power
+                line += "<span class=\"hidden-power\"> " + $this.data("hiddenPower") + " |</span>";
                 // Egg Moves
                 line += "<span class=\"egg-moves\"> " + $this.find(".egg-moves").text() + " |</span>";
                 // Poké Balls
