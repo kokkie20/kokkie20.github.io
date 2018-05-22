@@ -923,6 +923,14 @@ function displayPokemon(){
 				isproofed = "✘";
 			}
 			row += "<td class=\"proof\">" + isproofed + "</td>";
+		//Bulbabedia
+		if (!empty(pokemon.bulbapedia)) {
+			row += "<td class=\"bulba\"><a href=\"" + pokemon.bulbapedia + "\" target=\"_blank\">Bulba</a></td>";
+		} 
+		else {
+			row += "<td class=\"bulba\"> </td>";
+		}
+		
 		if(pokemon.rarity == "RTO")
 		{
 			row += "<td class=\"rto\">" + pokemon.rarity + "</td></tr>";
@@ -958,8 +966,6 @@ function displayPokemon(){
 		{
 			row += "<td class=\"rarity\">" + pokemon.rarity + "</td></tr>";
 		}
-		//Bulbabedia
-		row += "<td class=\"bulba\"><a href=\"" + pokemon.bulbapedia + "\" target=\"_blank\">Bulba</a></td>";
 			
             // Egg Moves
             $("tbody").append(row);
