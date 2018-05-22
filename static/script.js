@@ -446,7 +446,6 @@ function getTags(pokemon) {
     if (LEGENDS.indexOf(pokemon.dexNo) > -1) tags.push("legend");
     if (SUBLEGENDS.indexOf(pokemon.dexNo) > -1) tags.push("sublegend");
     if ((POKEMON_WITH_ALOLA_FORM.indexOf(pokemon.dexNo) > -1 && pokemon.form == "Alola Form") || POKEMON_ALLOWED_ON_VGC17.indexOf(pokemon.dexNo) > -1) tags.push("allowed-on-vgc17");
-    if (["Normal", "Fighting", "Flying", "Poison", "Ground", "Rock", "Bug", "Ghost", "Steel", "Fire", "Water", "Grass", "Electric", "Psychic", "Ice", "Dragon", "Dark", "Fairy"].indexOf(pokemon.hiddenPower) > -1) tags.push("hidden-power");
     Object.keys(EGG_GROUPS).forEach(function(egg_group) {
         if (EGG_GROUPS[egg_group].indexOf(pokemon.dexNo) > -1) tags.push("egg-group-" + egg_group.toLowerCase().replace(' ', ''));
     });
@@ -891,7 +890,8 @@ function displayPokemon(){
             // Hidden Power
 			if (pokemon.hiddenPower)
 			{
-				row += "<td class=\"hidden-power hidden\">" + pokemon.hiddenPower + "</td>";
+				var hidden = pokemon.hiddenPower;
+				row += "<td class=\"hidden-power hidden\">" + hidden + "</td>";
 				row += "</td>";
 			} else {
 				row += "<td class=\"hidden-power hidden\">Unknown</td>";
