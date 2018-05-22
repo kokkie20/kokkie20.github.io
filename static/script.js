@@ -891,10 +891,10 @@ function displayPokemon(){
             // Hidden Power
 			if (pokemon.hiddenPower)
 			{
-				row += "<td class=\"hidden-power\">" + pokemon.hiddenPower + "</td>";
+				row += "<td class=\"hidden-power hidden\">" + pokemon.hiddenPower + "</td>";
 				row += "</td>";
 			} else {
-				row += "<td class=\"hidden-power\">Unknown</td>";
+				row += "<td class=\"hidden-power hidden\">Unknown</td>";
 				row += "</td>";
 			}
 			
