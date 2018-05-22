@@ -891,10 +891,10 @@ function displayPokemon(){
             // Hidden Power
 			if (pokemon.hiddenPower)
 			{
-				row += "<td class=\"hidden-power hidden " + pokemon.hiddenPower.toLowerCase() + "\">" + pokemon.hiddenPower + "</td>";
+				row += "<td class=\"hidden-power\">" + pokemon.hiddenPower + "</td>";
 				row += "</td>";
 			} else {
-				row += "<td class=\"hidden-power hidden\">Unknown</td>";
+				row += "<td class=\"hidden-power\">Unknown</td>";
 				row += "</td>";
 			}
 			
@@ -1069,7 +1069,7 @@ function displayPokemon(){
                 var statAttributes = $this.find(".ivs").text();
                 line += "<span class=\"ivs\"> " + statAttributes + " |</span>";
 				// Hidden Power
-                line += "<span class=\"hidden-power\"> " + $this.data("hiddenPower") + " |</span>";
+                line += "<span class=\"hidden-power\"> " + $this.find(".hidden-power").text() + " |</span>";
                 // Egg Moves
                 line += "<span class=\"egg-moves\"> " + $this.find(".egg-moves").text() + " |</span>";
                 // Poké Balls
