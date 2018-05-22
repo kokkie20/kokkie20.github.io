@@ -925,7 +925,7 @@ function displayPokemon(){
 			row += "<td class=\"proof\">" + isproofed + "</td>";
 		//Bulbabedia
 		if (!empty(pokemon.bulbapedia)) {
-			row += "<td class=\"bulba\"><a href=\"" + pokemon.bulbapedia + "\" target=\"_blank\">Bulba</a></td>";
+			row += "<td class=\"bulba\"><a href=\"" + pokemon.bulbapedia + "\" target=\"_blank\">Click Here</a></td>";
 		} 
 		else {
 			row += "<td class=\"bulba\"> </td>";
