@@ -815,7 +815,7 @@ function displayPokemon(){
             // Ability
             row += "<td class=\"ability\">" + (pokemon.ability.endsWith('*') ? pokemon.ability.slice(0,-1) : pokemon.ability) + "</td>";
             // EVs
-            /*var evs = [];
+            var evs = [];
             var evTotal = 0;
             for (var i = 0; i < BATTLE_STATS.length; i++) {
                 var stat = BATTLE_STATS_ABBR[i];
@@ -882,10 +882,10 @@ function displayPokemon(){
             evs = evs.join(' / ');
             if (evTotal === 0) evs = "Not EV-trained";
             row += "<td class=\"ivs hidden\">" + ivs + "</td>";
-            row += "<td class=\"evs hidden\">" + evs + "</td>";*/
+            row += "<td class=\"evs hidden\">" + evs + "</td>";
 		
             // Hidden Power
-            /*row += "<td class=\"hidden-power\">";
+            row += "<td class=\"hidden-power hidden\">";
             if (pokemon.hiddenPower) {
                 row += "<span title=\"" + pokemon.hiddenPower + "\"";
                 row += " class=\"hidden-power " + pokemon.hiddenPower.toLowerCase() + "\">";
@@ -895,7 +895,7 @@ function displayPokemon(){
             }
             row += "</td>";*/
             row += "<td class=\"moves hidden" +  (pokemon.eggMoves.length > 0 || !isForIndividualPokemon ? " hidden" : '') + "\">" + pokemon.moves.join(', ') + "</td>";      
-            row += "<td class=\"egg-moves" +  (pokemon.eggMoves.length === 0 && isForIndividualPokemon ? " hidden" : '') + "\">" + pokemon.eggMoves.join(', ') + "</td>";       
+            row += "<td class=\"egg-moves hidden" +  (pokemon.eggMoves.length === 0 && isForIndividualPokemon ? " hidden" : '') + "\">" + pokemon.eggMoves.join(', ') + "</td>";       
             // Poké Balls
             row += "<td class=\"poke-balls rows" + Math.ceil(pokemon.balls.length / 3) + "\">";
             for (var i = 0; i < pokemon.balls.length; i++) {
@@ -1055,6 +1055,8 @@ function displayPokemon(){
                 // IVs & EVs
                 var statAttributes = $this.find(".ivs").text();
                 line += "<span class=\"ivs\"> " + statAttributes + " |</span>";
+		var statAttributes = $this.find(".hidden-power").text();
+                line += "<span class=\"ivs\"> " + $this.data("hiddenpower") + " |</span>";
                 // Egg Moves
                 line += "<span class=\"egg-moves\"> " + $this.find(".egg-moves").text() + " |</span>";
                 // Poké Balls
