@@ -613,7 +613,7 @@ function populateModal($this) {
     $pokemonInfo.find(".name").text(name);
     var gender = $this.data("gender");
     var form = $this.data("form");
-    var bulba = $this.data("Bulbapedia");
+    var bulbapedia = $this.data("bulbapedia");
     if (gender == "F") {
         $pokemonInfo.find(".gender").html("&#x2640;").attr("class", "gender female");
     } else if (gender == "M") {
