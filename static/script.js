@@ -881,7 +881,7 @@ function displayPokemon(){
             ivs = ivs.join('/');
             evs = evs.join(' / ');
             if (evTotal === 0) evs = "Not EV-trained";
-            //row += "<td class=\"ivs hidden\">" + ivs + "</td>";
+            row += "<td class=\"ivs hidden\">" + ivs + "</td>";
             //row += "<td class=\"evs hidden\">" + evs + "</td>";
 		
             // Hidden Power
