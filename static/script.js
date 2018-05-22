@@ -881,7 +881,7 @@ function displayPokemon(){
             ivs = ivs.join('/');
             evs = evs.join(' / ');
             if (evTotal === 0) evs = "Not EV-trained";
-            row += "<td class=\"ivs hidden\">" + ivs + "</td>";
+            //row += "<td class=\"ivs hidden\">" + ivs + "</td>";
             row += "<td class=\"evs hidden\">" + evs + "</td>";
 		
             // Hidden Power
@@ -1056,7 +1056,7 @@ function displayPokemon(){
                 var statAttributes = $this.find(".ivs").text();
                 line += "<span class=\"ivs\"> " + statAttributes + " |</span>";
 		var statAttributes = $this.find(".hidden-power").text();
-                line += "<span class=\"ivs\"> " + $this.data("hiddenpower") + " |</span>";
+                line += "<span class=\"hidden-power\"> " + $this.data("hiddenpower") + " |</span>";
                 // Egg Moves
                 line += "<span class=\"egg-moves\"> " + $this.find(".egg-moves").text() + " |</span>";
                 // Poké Balls
