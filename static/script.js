@@ -889,7 +889,16 @@ function displayPokemon(){
             row += "<td class=\"evs hidden\">" + evs + "</td>";
 		
             // Hidden Power
-            row += "<td class=\"hidden-power\">";
+			if (pokemon.hiddenPower)
+			{
+				row += "<td class=\"hidden-power hidden" + pokemon.hiddenPower.toLowerCase() + "\">" + pokemon.hiddenPower + "</td>";
+				row += "</td>";
+			} else {
+				row += "<td class=\"hidden-power hidden\">Unknown</td>";
+				row += "</td>";
+			}
+			
+            /*row += "<td class=\"hidden-power\">";
             if (pokemon.hiddenPower) {
                 row += "<span title=\"" + pokemon.hiddenPower + "\"";
                 row += " class=\"hidden-power " + pokemon.hiddenPower.toLowerCase() + "\">";
@@ -897,7 +906,7 @@ function displayPokemon(){
             } else {
                 row += "-";
             }
-            row += "</td>";
+            row += "</td>";*/
             row += "<td class=\"moves hidden" +  (pokemon.eggMoves.length > 0 || !isForIndividualPokemon ? " hidden" : '') + "\">" + pokemon.moves.join(', ') + "</td>";      
             row += "<td class=\"egg-moves hidden" +  (pokemon.eggMoves.length === 0 && isForIndividualPokemon ? " hidden" : '') + "\">" + pokemon.eggMoves.join(', ') + "</td>";       
             // Poké Balls
@@ -1060,7 +1069,7 @@ function displayPokemon(){
                 var statAttributes = $this.find(".ivs").text();
                 line += "<span class=\"ivs\"> " + statAttributes + " |</span>";
 				// Hidden Power
-                line += "<span class=\"hidden-power\"> " + $this.data("hiddenpower") + " |</span>";
+                line += "<span class=\"hidden-power\"> " + $this.data("hiddenPower") + " |</span>";
                 // Egg Moves
                 line += "<span class=\"egg-moves\"> " + $this.find(".egg-moves").text() + " |</span>";
                 // Poké Balls
