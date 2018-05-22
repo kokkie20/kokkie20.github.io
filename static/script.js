@@ -893,7 +893,7 @@ function displayPokemon(){
             } else {
                 row += "-";
             }
-            row += "</td>";*/
+            row += "</td>";
             row += "<td class=\"moves hidden" +  (pokemon.eggMoves.length > 0 || !isForIndividualPokemon ? " hidden" : '') + "\">" + pokemon.moves.join(', ') + "</td>";      
             row += "<td class=\"egg-moves hidden" +  (pokemon.eggMoves.length === 0 && isForIndividualPokemon ? " hidden" : '') + "\">" + pokemon.eggMoves.join(', ') + "</td>";       
             // Poké Balls
