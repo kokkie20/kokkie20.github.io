@@ -1065,7 +1065,7 @@ function displayPokemon(){
                 }
                 line += "<span class=\"ability\"> " + ability + " |</span>";
 				// Hidden Power
-                line += "<span class=\"hidden-power\"> " + $this.data("hiddenPower") + " |</span>";
+                line += "<span class=\"hidden-power\"> " + $this.data("nature") + " |</span>";
                 // IVs & EVs
                 var statAttributes = $this.find(".ivs").text();
                 line += "<span class=\"ivs\"> " + statAttributes + " |</span>";
