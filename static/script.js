@@ -824,10 +824,8 @@ function displayPokemon(){
 			{
 				var hidden = pokemon.hiddenPower;
 				row += "<td class=\"hidden-power hidden\">" + hidden + "</td>";
-				row += "</td>";
 			} else {
 				row += "<td class=\"hidden-power hidden\">Unknown</td>";
-				row += "</td>";
 			}
             // EVs
             var evs = [];
@@ -1067,7 +1065,7 @@ function displayPokemon(){
                 }
                 line += "<span class=\"ability\"> " + ability + " |</span>";
 				// Hidden Power
-                line += "<span class=\"hiddenPowerspan\"> " + $this.find(".hidden-power hidden").text() + " |</span>";
+                line += "<span class=\"hiddenPowerspan\"> " + $this.data("hiddenPower") + " |</span>";
                 // IVs & EVs
                 var statAttributes = $this.find(".ivs").text();
                 line += "<span class=\"ivs\"> " + statAttributes + " |</span>";
