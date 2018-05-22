@@ -866,7 +866,7 @@ function displayPokemon(){
                 if (!legend) legend = stat + " IV";
                 iv = "<abbr class=\"" + stat.toLowerCase() + "\" title=\"" + legend + "\">" + iv + "</abbr>";
                 ivs.push(iv);
-                row += "<td class=\"" + stat.toLowerCase() + (evTotal > 0 ? " rows2" : '') + "\">" + iv;
+                //row += "<td class=\"" + stat.toLowerCase() + (evTotal > 0 ? " rows2" : '') + "\">" + iv;
                 if (evTotal > 0) {
                     row += "<br>";
                     var ev = Number(pokemon.evs[stat.toLowerCase()]);
