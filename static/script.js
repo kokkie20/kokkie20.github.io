@@ -889,20 +889,13 @@ function displayPokemon(){
             row += "<td class=\"evs hidden\">" + evs + "</td>";
 		
             // Hidden Power
-            /*row += "<td class=\"hidden-power hidden\">";
+            row += "<td class=\"hidden-power\">";
             if (pokemon.hiddenPower) {
                 row += "<span title=\"" + pokemon.hiddenPower + "\"";
                 row += " class=\"hidden-power " + pokemon.hiddenPower.toLowerCase() + "\">";
                 row += pokemon.hiddenPower + "</span>";
             } else {
                 row += "-";
-            }
-            row += "</td>";*/
-			row += "<td class=\"hidden-power hidden\">";
-            if (pokemon.hiddenPower) {
-                row += pokemon.hiddenPower;
-            } else {
-                row += "Unknown";
             }
             row += "</td>";
             row += "<td class=\"moves hidden" +  (pokemon.eggMoves.length > 0 || !isForIndividualPokemon ? " hidden" : '') + "\">" + pokemon.moves.join(', ') + "</td>";      
