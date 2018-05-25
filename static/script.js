@@ -997,7 +997,7 @@ function displayPokemon(){
         $("tbody tr").click(function() {
             var $this = $(this);
             if ($this.hasClass("selected")) {
-                $this.attr("title", $this.data("notes"));
+                $this.attr("title", " + pokemon.notes + ");
             } else {
                 //$this.attr("title", "Click to remove from Reddit table.")
                 if (isForIndividualPokemon) {
@@ -1088,7 +1088,7 @@ function displayPokemon(){
                 toggleCols();
             }
         });
-        $("tbody tr").attr("title", $this.data("notes"));
+        $("tbody tr").attr("title", " + pokemon.notes + ");
         if (isForIndividualPokemon) {
             $("body").addClass("shiny");
             $("th.ivs").append(" / <abbr title=\"Effort Values\">EVs</abbr>");
