@@ -1035,7 +1035,6 @@ function displayPokemon(){
             //$this.toggleClass("selected");
             var id = $this.data("id");
             var $markdown = $("#markdown");
-	    var eventtitle = $this.data("notes");
             var $line = $markdown.find(".line[data-id='" + id + "']");
             if ($line.length > 0) {
                 $line.remove();
@@ -1090,7 +1089,7 @@ function displayPokemon(){
             }
         });
         //$("tbody tr").attr("title", $this.data("notes"));
-	$("tbody tr").attr("title", eventtitle);
+	$("tbody tr").attr("title", pokemon.notes);
         if (isForIndividualPokemon) {
             $("body").addClass("shiny");
             $("th.ivs").append(" / <abbr title=\"Effort Values\">EVs</abbr>");
