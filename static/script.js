@@ -1088,7 +1088,7 @@ function displayPokemon(){
                 line = "<span class=\"line\" data-id=\"" + id + "\">" + line + "<br></span>";
                 $markdown.append(line);
                 toggleCols();
-				$("tbody tr").attr("title", $this.data("notes");
+				$("tbody tr").attr("title", $this.data("notes"));
             }
         });
         //$("tbody tr").attr("title", $this.data("notes"));
