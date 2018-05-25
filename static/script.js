@@ -1088,7 +1088,7 @@ function displayPokemon(){
                 toggleCols();
             }
         });
-        $("tbody tr").attr("title",  "boo");
+        $("tbody tr").attr("title",  '" + $this.data("notes") + "');
         if (isForIndividualPokemon) {
             $("body").addClass("shiny");
             $("th.ivs").append(" / <abbr title=\"Effort Values\">EVs</abbr>");
