@@ -686,7 +686,6 @@ function populateModal($this) {
     $pokemonInfo.find(".next a").attr("data-id", nextId);
 }
 function displayPokemon(){
-	var notepoke = null ;
     $.getJSON(getWorksheetUrl(spreadsheetId, worksheetId), function(data) {
         var entry = data.feed.entry;
         if (entry && entry[0]) {
@@ -798,8 +797,7 @@ function displayPokemon(){
                 pokemon.balls.push("Poké Ball");
             }
             if (pokemon.balls.length === 0) pokemon.balls.push("Unknown");
-
-            var row = "<tr class=\"" + getTags(pokemon) + "\"" + getData(pokemon) + " data-id=\"" + count + "\">";
+            var row = "<tr class=\"" + getTags(pokemon) + "\"" + getData(pokemon) + " data-id=\"" + count + "\" title=\"Event: " + pokemon.notes + " *Click for more information*\">";
             // Sprite
 				row += "<td class=\"sprite\"><span class=\"menu-sprite " + getSpriteClass(pokemon) + "\" title=\"" + pokemon.name + "\">" + pokemon.dexNo + "</span></td>";
             // Name
@@ -1090,7 +1088,7 @@ function displayPokemon(){
             }
         });
         //$("tbody tr").attr("title", $this.data("notes"));
-		$("tbody tr").attr("title", "Click for more information");
+		//$("tbody tr").attr("title", "Click for more information");
         if (isForIndividualPokemon) {
             $("body").addClass("shiny");
             $("th.ivs").append(" / <abbr title=\"Effort Values\">EVs</abbr>");
