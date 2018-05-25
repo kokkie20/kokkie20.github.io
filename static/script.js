@@ -686,6 +686,7 @@ function populateModal($this) {
     $pokemonInfo.find(".next a").attr("data-id", nextId);
 }
 function displayPokemon(){
+	var notepoke = null ;
     $.getJSON(getWorksheetUrl(spreadsheetId, worksheetId), function(data) {
         var entry = data.feed.entry;
         if (entry && entry[0]) {
@@ -753,6 +754,7 @@ function displayPokemon(){
             //    }
             //}
             pokemon.language = tryGetValue(this, ["language", "lang"]);
+			notepoke = pokemon.language;
             pokemon.notes = tryGetValue(this, ["note", "notes", "comment", "comments"]);
 	    pokemon.checked = getValue(this.gsx$checked);
 	    pokemon.proof = getValue(this.gsx$proof);
@@ -1089,7 +1091,7 @@ function displayPokemon(){
             }
         });
         //$("tbody tr").attr("title", $this.data("notes"));
-	$("tbody tr").attr("title", pokemon.notes);
+	$("tbody tr").attr("title", notepoke);
         if (isForIndividualPokemon) {
             $("body").addClass("shiny");
             $("th.ivs").append(" / <abbr title=\"Effort Values\">EVs</abbr>");
