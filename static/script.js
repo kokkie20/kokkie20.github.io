@@ -756,7 +756,6 @@ function displayPokemon(){
             pokemon.language = tryGetValue(this, ["language", "lang"]);
 			notepoke = pokemon.language;
             pokemon.notes = tryGetValue(this, ["note", "notes", "comment", "comments"]);
-			$("tbody tr").attr("title", pokemon.notes); //NOFIX
 	    pokemon.checked = getValue(this.gsx$checked);
 	    pokemon.proof = getValue(this.gsx$proof);
 	    pokemon.rarity = getValue(this.gsx$rarity);
@@ -983,6 +982,7 @@ function displayPokemon(){
 		}
 			
             // Egg Moves
+			$("tbody tr").attr("title", pokemon.notes); //NOFIX
             $("tbody").append(row);
             count++;
         });
