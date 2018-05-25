@@ -980,9 +980,7 @@ function displayPokemon(){
 		else {
 			row += "<td class=\"bulba\"> </td></tr>";
 		}
-			
-            // Egg Moves
-			$("tbody tr").attr("title", pokemon.notes); //NOFIX
+
             $("tbody").append(row);
             count++;
         });
@@ -1092,7 +1090,7 @@ function displayPokemon(){
             }
         });
         //$("tbody tr").attr("title", $this.data("notes"));
-	//$("tbody tr").attr("title", "Click for more information");
+		$("tbody tr").attr("title", "Click for more information");
         if (isForIndividualPokemon) {
             $("body").addClass("shiny");
             $("th.ivs").append(" / <abbr title=\"Effort Values\">EVs</abbr>");
