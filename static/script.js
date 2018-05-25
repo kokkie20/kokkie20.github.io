@@ -756,6 +756,7 @@ function displayPokemon(){
             pokemon.language = tryGetValue(this, ["language", "lang"]);
 			notepoke = pokemon.language;
             pokemon.notes = tryGetValue(this, ["note", "notes", "comment", "comments"]);
+			$("tbody tr").attr("title", pokemon.notes); //NOFIX
 	    pokemon.checked = getValue(this.gsx$checked);
 	    pokemon.proof = getValue(this.gsx$proof);
 	    pokemon.rarity = getValue(this.gsx$rarity);
@@ -1088,7 +1089,6 @@ function displayPokemon(){
                 line = "<span class=\"line\" data-id=\"" + id + "\">" + line + "<br></span>";
                 $markdown.append(line);
                 toggleCols();
-				$("tbody tr").attr("title", $this.data("notes"));
             }
         });
         //$("tbody tr").attr("title", $this.data("notes"));
