@@ -685,6 +685,16 @@ function populateModal($this) {
     $pokemonInfo.find(".prev a").attr("data-id", prevId);
     $pokemonInfo.find(".next a").attr("data-id", nextId);
 }
+
+function isemptynote(notes){
+	if (empty(notes))
+	{
+		return "Unknown";
+	} else {
+		return notes;
+	}
+}
+
 function displayPokemon(){
     $.getJSON(getWorksheetUrl(spreadsheetId, worksheetId), function(data) {
         var entry = data.feed.entry;
@@ -797,7 +807,7 @@ function displayPokemon(){
                 pokemon.balls.push("Poké Ball");
             }
             if (pokemon.balls.length === 0) pokemon.balls.push("Unknown");
-            var row = "<tr class=\"" + getTags(pokemon) + "\"" + getData(pokemon) + " data-id=\"" + count + "\" title=\"Event: " + pokemon.notes + " *Click for more information*\">";
+            var row = "<tr class=\"" + getTags(pokemon) + "\"" + getData(pokemon) + " data-id=\"" + count + "\" title=\"Event: " + isemptynote(pokemon.notes) + " *Click for more information*\">";
             // Sprite
 				row += "<td class=\"sprite\"><span class=\"menu-sprite " + getSpriteClass(pokemon) + "\" title=\"" + pokemon.name + "\">" + pokemon.dexNo + "</span></td>";
             // Name
