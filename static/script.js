@@ -226,6 +226,7 @@ var Pokemon = function() {
     this.proof = false;
     this.rarity = "";
     this.bulbapedia = "";
+    this.item = "";
     this.genderRatio = function() {
         if (FEMALE_ONLY_POKEMON.indexOf(this.dexNo) > -1) {
             return "gender-ratio-1-0";
@@ -618,6 +619,7 @@ function populateModal($this) {
     var gender = $this.data("gender");
     var form = $this.data("form");
     var bulbapedia = $this.data("bulbapedia");
+    var item = $this.data("item");
 	var hiddenpower = $this.data("hiddenPower");
     if (gender == "F") {
         $pokemonInfo.find(".gender").html("&#x2640;").attr("class", "gender female");
@@ -695,11 +697,20 @@ function isemptynote(notes){
 	}
 }
 
+function isemptyitem(items){
+	if (empty(items))
+	{
+		return "None";
+	} else {
+		return items;
+	}
+}
+
 function displayPokemon(){
     $.getJSON(getWorksheetUrl(spreadsheetId, worksheetId), function(data) {
         var entry = data.feed.entry;
         if (entry && entry[0]) {
-            isForIndividualPokemon = tryGetValue(entry[0], ["nickname","ot","tid","level","lv","lvl","hpev","atkev","defev","spaev","spdev","speev","lang","language"]);
+            isForIndividualPokemon = tryGetValue(entry[0], ["nickname","ot","tid","level","lv","lvl","hpev","atkev","defev","spaev","spdev","speev","lang","language","item","hiddenpower"]);
         }
         var count = 0;
         $(entry).each(function(){
@@ -769,6 +780,7 @@ function displayPokemon(){
 	    pokemon.proof = getValue(this.gsx$proof);
 	    pokemon.rarity = getValue(this.gsx$rarity);
 	    pokemon.bulbapedia = getValue(this.gsx$bulbapedia);
+            pokemon.item = getValue(this.gsx$item);
             for (var i = 0; i < POKE_BALLS.length; i++) {
                 var pokeBall = POKE_BALLS[i].toLowerCase();
                 if (tryGetValue(this, [pokeBall.replace(' ', ''), pokeBall.slice(0, -5)])) pokemon.balls.push(pokeBall);
@@ -807,8 +819,8 @@ function displayPokemon(){
                 pokemon.balls.push("Poké Ball");
             }
             if (pokemon.balls.length === 0) pokemon.balls.push("Unknown");
-            var row = "<tr class=\"" + getTags(pokemon) + "\"" + getData(pokemon) + " data-id=\"" + count + "\" title=\"Event: " + isemptynote(pokemon.notes) + " | *Click for more information*\">";
-            // Sprite
+            var row = "<tr class=\"" + getTags(pokemon) + "\"" + getData(pokemon) + " data-id=\"" + count + "\" title=\"Event: " + isemptynote(pokemon.notes) + " | *Click for more information*\" item=\"" + isemptyitem(pokemon.item) + "\">";
+            // Sprite                                                                                                          isemptyitem
 				row += "<td class=\"sprite\"><span class=\"menu-sprite " + getSpriteClass(pokemon) + "\" title=\"" + pokemon.name + "\">" + pokemon.dexNo + "</span></td>";
             // Name
             row += "<td class=\"name\">" + (pokemon.dexNo == 29 || pokemon.dexNo == 32 ? "Nidoran" : pokemon.name);
@@ -916,6 +928,13 @@ function displayPokemon(){
                 row += "-";
             }
             row += "</td>";*/
+		if (!empty(pokemon.item)) {
+			row += "<td class=\"item hidden\">" + pokemon.item + "</td>";
+		} 
+		else {
+			row += "<td class=\"item hidden\">None</td>";
+		}
+
             row += "<td class=\"moves hidden" +  (pokemon.eggMoves.length > 0 || !isForIndividualPokemon ? " hidden" : '') + "\">" + pokemon.moves.join(', ') + "</td>";      
             row += "<td class=\"egg-moves hidden" +  (pokemon.eggMoves.length === 0 && isForIndividualPokemon ? " hidden" : '') + "\">" + pokemon.eggMoves.join(', ') + "</td>";       
             // Poké Balls
@@ -1073,6 +1092,7 @@ function displayPokemon(){
                     ability = "**" + ability + "**";
                 }
                 line += "<span class=\"ability\"> " + ability + " |</span>";
+		line += "<span class=\"item\"> " + $this.data("item") + " |</span">;
 				// Hidden Power
                 line += "<span class=\"hidden-power\"> " + $this.data("nature") + " |</span>";
                 // IVs & EVs
