@@ -1092,7 +1092,7 @@ function displayPokemon(){
                     ability = "**" + ability + "**";
                 }
                 line += "<span class=\"ability\"> " + ability + " |</span>";
-		line += "<span class=\"item\"> " + $this.data("item") + " |</span">;
+		line += "<span class=\"item\"> " + $this.data("item") + " |</span">";
 				// Hidden Power
                 line += "<span class=\"hidden-power\"> " + $this.data("nature") + " |</span>";
                 // IVs & EVs
