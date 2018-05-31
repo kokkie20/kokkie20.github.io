@@ -1004,6 +1004,14 @@ function displayPokemon(){
 		{
 			row += "<td class=\"rarity\">Other Lang</td>";
 		} 
+		else if (pokemon.rarity == "UC")
+		{
+			row += "<td class=\"rarity\">Uncloned</td>";
+		} 
+		else if (pokemon.rarity == "NC")
+		{
+			row += "<td class=\"rarity\">Not Collected</td>";
+		} 
 		else if (empty(pokemon.rarity)) {
 			row += "<td class=\"rarity\"> </td>";
 		} 
