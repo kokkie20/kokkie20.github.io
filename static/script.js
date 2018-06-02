@@ -584,6 +584,7 @@ function disableOption(value) {
 }
 function clearModal() {
     $("#pokemon-info .menu-sprite").remove();
+	$("#pokemon-info .smenu-sprite").remove();
     $("#pokemon-info .item-sprite").remove();
     $("#pokemon-info figure img").remove();
     $("#pokemon-info ul li").remove();
@@ -632,9 +633,15 @@ function populateModal($this) {
     }
     $pokemonInfo.find(".level").text("Lv. " + $this.data("level"));
     // Pokémon Sprite
-    var $sprite = $this.find(".menu-sprite");
-    var spriteClass = $sprite.attr("class").split(' ')[1];
-    $("#pokemon-info h1").prepend("<span class=\"menu-sprite " + spriteClass + "\">" + $this.data("dexno") + "</span>");
+	if (isShiny) {
+		var $sprite = $this.find(".smenu-sprite");
+        var spriteClass = $sprite.attr("class").split(' ')[1];
+        $("#pokemon-info h1").prepend("<span class=\"smenu-sprite " + spriteClass + "\">" + $this.data("dexno") + "</span>");			
+	} else {
+		var $sprite = $this.find(".menu-sprite");
+        var spriteClass = $sprite.attr("class").split(' ')[1];
+        $("#pokemon-info h1").prepend("<span class=\"menu-sprite " + spriteClass + "\">" + $this.data("dexno") + "</span>");		
+	}
     // Pokémon Model
     var generation = Number($this.data("generation"));
     $(new Image())
@@ -832,7 +839,12 @@ function displayPokemon(){
             if (pokemon.balls.length === 0) pokemon.balls.push("Unknown");
             var row = "<tr class=\"" + getTags(pokemon) + "\"" + getData(pokemon) + " data-id=\"" + count + "\" title=\"Event: " + isemptynote(pokemon.notes) + " | *Click for more information*\" item=\"" + isemptyitem(pokemon.item) + "\">";
             // Sprite                                                                                                          isemptyitem
-				row += "<td class=\"sprite\"><span class=\"menu-sprite " + getSpriteClass(pokemon) + "\" title=\"" + pokemon.name + "\">" + pokemon.dexNo + "</span></td>";
+			if (pokemon.isShiny == "X")
+			{
+			row += "<td class=\"sprite\"><span class=\"smenu-sprite " + getSpriteClass(pokemon) + "\" title=\"" + pokemon.name + "\">" + pokemon.dexNo + "</span></td>";				
+			} else {
+			row += "<td class=\"sprite\"><span class=\"menu-sprite " + getSpriteClass(pokemon) + "\" title=\"" + pokemon.name + "\">" + pokemon.dexNo + "</span></td>";
+			}
             // Name
             row += "<td class=\"name\">" + (pokemon.dexNo == 29 || pokemon.dexNo == 32 ? "Nidoran" : pokemon.name);
             if (pokemon.gender == "F") {
@@ -1003,14 +1015,6 @@ function displayPokemon(){
 		else if (pokemon.rarity == "LANG")
 		{
 			row += "<td class=\"rarity\">Other Lang</td>";
-		} 
-		else if (pokemon.rarity == "UC")
-		{
-			row += "<td class=\"rarity\">Uncloned</td>";
-		} 
-		else if (pokemon.rarity == "NC")
-		{
-			row += "<td class=\"rarity\">Not Collected</td>";
 		} 
 		else if (empty(pokemon.rarity)) {
 			row += "<td class=\"rarity\"> </td>";
