@@ -623,7 +623,8 @@ function populateModal($this) {
     var item = $this.data("item");
 	$pokemonInfo.find(".items").text(isemptyitem(item));
 	var hiddenpower = $this.data("hiddenpower");
-	$pokemonInfo.find(".hiddenpowerss").text(isemptyhp(hiddenpower));
+	$pokemonInfo.find(".hiddenpowerss").html("<span title=\"" + hiddenpower + "\" class=\"hidden-power " + hiddenpower.toLowerCase() + "\">" + hiddenpower + "</span>");
+	//$pokemonInfo.find(".hiddenpowerss").text(isemptyhp(hiddenpower));
     if (gender == "F") {
         $pokemonInfo.find(".gender").html("&#x2640;").attr("class", "gender female");
     } else if (gender == "M") {
@@ -872,6 +873,7 @@ function displayPokemon(){
 			} else {
 				row += "<td class=\"hidden-power hidden\">Unknown</td>";
 			}
+			
             // EVs
             var evs = [];
             var evTotal = 0;
@@ -944,9 +946,10 @@ function displayPokemon(){
 			
             row += "<td class=\"hidden-power hidden\">";
             if (pokemon.hiddenPower) {
-                row += "<span title=\"" + pokemon.hiddenPower + "\"";
-                row += " class=\"hidden-power " + pokemon.hiddenPower.toLowerCase() + "\">";
-                row += pokemon.hiddenPower + "</span>";
+			    row += "<span title=\"" + pokemon.hiddenPower + "\" class=\"hidden-power " + pokemon.hiddenPower.toLowerCase() + "\">" + pokemon.hiddenPower + "</span>";
+                //row += "<span title=\"" + pokemon.hiddenPower + "\"";
+                //row += " class=\"hidden-power " + pokemon.hiddenPower.toLowerCase() + "\">";
+                //row += pokemon.hiddenPower + "</span>";
             } else {
                 row += "-";
             }
@@ -1117,7 +1120,8 @@ function displayPokemon(){
                 line += "<span class=\"ability\"> " + ability + " |</span>";
 				line += "<span class=\"item\"> " + $this.data("item") + " |</span>";
 				// Hidden Power
-                line += "<span class=\"hidden-power\"> " + $this.data("hiddenPower") + " |</span>";
+				line += "<span title=\"" + $this.data("hiddenPower") + "\" class=\"hidden-power " + $this.data("hiddenPower") + "\">" + $this.data("hiddenPower") + "</span>";
+                //line += "<span class=\"hidden-power\"> " + $this.data("hiddenPower") + " |</span>";
                 // IVs & EVs
                 var statAttributes = $this.find(".ivs").text();
                 line += "<span class=\"ivs\"> " + statAttributes + " |</span>";
