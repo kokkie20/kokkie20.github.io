@@ -1033,11 +1033,19 @@ function displayPokemon(){
 
 		//status
 		if (!empty(pokemon.pending)) {
-			row += "<td class=\"pending\">" + pokemon.pending + "</td>";
+		if(pokemon.pending == "Pending")
+		{
+			row += "<td class=\"rarity\">Pending</td>";
 		} 
-		else {
-			row += "<td class=\"pending\"> </td>";
+		else if (pokemon.pending == "WFT")
+		{
+			row += "<td class=\"rarity\">Wait for Trade</td>";
 		}
+		}
+		else {
+			row += "<td class=\"rarity\"> </td>";
+		}
+			
 		if (!empty(pokemon.bulbapedia)) {
 			row += "<td class=\"bulba\"><a href=\"" + pokemon.bulbapedia + "\" target=\"_blank\">Click Here</a></td></tr>";
 		} 
