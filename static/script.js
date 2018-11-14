@@ -1034,7 +1034,7 @@ function displayPokemon(){
 			row += "<td class=\"status\">" + pokemon.status + "</td></tr>";
 		} 
 		else {
-			row += "<td class=\"status\"> </td></tr>";
+			row += "<td class=\"status\"> </td>";
 		}
 		//Bulbabedia
 		if (!empty(pokemon.bulbapedia)) {
