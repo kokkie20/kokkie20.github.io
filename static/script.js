@@ -1030,20 +1030,20 @@ function displayPokemon(){
 			row += "<td class=\"rarity\">" + pokemon.rarity + "</td>";
 		}
 				//Bulbabedia
+
+		//status
+		if (!empty(pokemon.status)) {
+			row += "<td class=\"status\">" + pokemon.status + "</td>";
+		} 
+		else {
+			row += "<td class=\"status\"> </td>";
+		}
 		if (!empty(pokemon.bulbapedia)) {
 			row += "<td class=\"bulba\"><a href=\"" + pokemon.bulbapedia + "\" target=\"_blank\">Click Here</a></td></tr>";
 		} 
 		else {
 			row += "<td class=\"bulba\"> </td></tr>";
 		}
-		//status
-		if (!empty(pokemon.status)) {
-			row += "<td class=\"status\">" + pokemon.status + "</td></tr>";
-		} 
-		else {
-			row += "<td class=\"status\"> </td>";
-		}
-
 
 
             $("tbody").append(row);
