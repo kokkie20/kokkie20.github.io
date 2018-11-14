@@ -225,7 +225,7 @@ var Pokemon = function() {
     this.checked = false;
     this.proof = false;
     this.rarity = "";
-	this.status = "";
+	this.info = "";
     this.bulbapedia = "";
     this.item = "";
     this.genderRatio = function() {
@@ -621,7 +621,7 @@ function populateModal($this) {
     var gender = $this.data("gender");
     var form = $this.data("form");
     var bulbapedia = $this.data("bulbapedia");
-	var status = $this.data("status");
+	var info = $this.data("info");
     var item = $this.data("item");
 	$pokemonInfo.find(".items").text(isemptyitem(item));
 	var hiddenpower = $this.data("hiddenpower");
@@ -801,7 +801,7 @@ function displayPokemon(){
 	    pokemon.proof = getValue(this.gsx$proof);
 	    pokemon.rarity = getValue(this.gsx$rarity);
 	    pokemon.bulbapedia = getValue(this.gsx$bulbapedia);
-		pokemon.status = getValue(this.gsx$status);
+		pokemon.info = getValue(this.gsx$info);
             pokemon.item = getValue(this.gsx$item);
             for (var i = 0; i < POKE_BALLS.length; i++) {
                 var pokeBall = POKE_BALLS[i].toLowerCase();
@@ -1032,11 +1032,11 @@ function displayPokemon(){
 				//Bulbabedia
 
 		//status
-		if (!empty(pokemon.status)) {
-			row += "<td class=\"rarity\">" + pokemon.status + "</td>";
+		if (!empty(pokemon.info)) {
+			row += "<td class=\"info\">" + pokemon.info + "</td>";
 		} 
 		else {
-			row += "<td class=\"status\"> </td>";
+			row += "<td class=\"info\"> </td>";
 		}
 		if (!empty(pokemon.bulbapedia)) {
 			row += "<td class=\"bulba\"><a href=\"" + pokemon.bulbapedia + "\" target=\"_blank\">Click Here</a></td></tr>";
