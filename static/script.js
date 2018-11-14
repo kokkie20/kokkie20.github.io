@@ -1033,7 +1033,7 @@ function displayPokemon(){
 
 		//status
 		if (!empty(pokemon.status)) {
-			row += "<td class=\"status\">" + pokemon.status + "</td>";
+			row += "<td class=\"rarity\">" + pokemon.status + "</td>";
 		} 
 		else {
 			row += "<td class=\"status\"> </td>";
