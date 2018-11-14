@@ -1029,6 +1029,13 @@ function displayPokemon(){
 		{
 			row += "<td class=\"rarity\">" + pokemon.rarity + "</td>";
 		}
+		//status
+		if (!empty(pokemon.status)) {
+			row += "<td class=\"status\">" + pokemon.status + "</td></tr>";
+		} 
+		else {
+			row += "<td class=\"status\"> </td></tr>";
+		}
 		//Bulbabedia
 		if (!empty(pokemon.bulbapedia)) {
 			row += "<td class=\"bulba\"><a href=\"" + pokemon.bulbapedia + "\" target=\"_blank\">Click Here</a></td></tr>";
@@ -1036,6 +1043,7 @@ function displayPokemon(){
 		else {
 			row += "<td class=\"bulba\"> </td></tr>";
 		}
+
 
             $("tbody").append(row);
             count++;
