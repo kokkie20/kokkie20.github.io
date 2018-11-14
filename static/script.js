@@ -225,6 +225,7 @@ var Pokemon = function() {
     this.checked = false;
     this.proof = false;
     this.rarity = "";
+	this.status = "";
     this.bulbapedia = "";
     this.item = "";
     this.genderRatio = function() {
@@ -620,6 +621,7 @@ function populateModal($this) {
     var gender = $this.data("gender");
     var form = $this.data("form");
     var bulbapedia = $this.data("bulbapedia");
+	var status = $this.data("status");
     var item = $this.data("item");
 	$pokemonInfo.find(".items").text(isemptyitem(item));
 	var hiddenpower = $this.data("hiddenpower");
@@ -799,6 +801,7 @@ function displayPokemon(){
 	    pokemon.proof = getValue(this.gsx$proof);
 	    pokemon.rarity = getValue(this.gsx$rarity);
 	    pokemon.bulbapedia = getValue(this.gsx$bulbapedia);
+		pokemon.status = getValue(this.gsx$status);
             pokemon.item = getValue(this.gsx$item);
             for (var i = 0; i < POKE_BALLS.length; i++) {
                 var pokeBall = POKE_BALLS[i].toLowerCase();
